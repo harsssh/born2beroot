@@ -1,0 +1,5 @@
+---
+# tasks file for hostname
+- name: set hostname
+  hostname:
+    name: "{{ hostname }}"
