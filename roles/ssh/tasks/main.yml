@@ -1,0 +1,16 @@
+---
+# tasks file for ssh
+- name: install ssh
+  apt:
+    name: openssh-server
+    state: present
+    update_cache: yes
+
+- name: enable ssh
+  service:
+    name: ssh
+    state: started
+    enabled: yes
+
+- import_tasks: port.yml
+- import_tasks: root.yml
