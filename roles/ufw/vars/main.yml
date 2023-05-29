@@ -1,0 +1,5 @@
+---
+# vars file for ufw
+# 開けるportのリスト
+ufw_allow_ports:
+  - 4242

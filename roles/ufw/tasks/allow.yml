@@ -1,0 +1,9 @@
+---
+# allow_ufw_portsを許可
+- name: allow ports
+  community.general.ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+    state: reloaded
+  loop: "{{ ufw_allow_ports }}"

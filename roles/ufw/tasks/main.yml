@@ -1,0 +1,18 @@
+---
+# tasks file for ufw
+- name: install ufw
+  apt:
+    name: ufw
+    state: latest
+    update_cache: yes
+
+- name: reset ufw
+  community.general.ufw:
+    state: reset
+
+- name: enable ufw
+  community.general.ufw:
+    state: enabled
+    policy: deny
+
+- import_tasks: allow.yml
