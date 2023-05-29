@@ -1,5 +1,4 @@
 ---
-# ssh, ufw ロールを呼び出す
 - hosts: all
   become: yes
   gather_facts: no
