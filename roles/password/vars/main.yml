@@ -3,4 +3,4 @@
 max_day: 30
 min_day: 2
 warn_day: 7
-policy: "minlen=10 maxrepeat=3 dcredit=-1 ucredit=-1 lcredit=-1 difok=7 usercheck=1 enfoce_for_root"
+policy: "minlen=10 maxrepeat=3 dcredit=-1 ucredit=-1 lcredit=-1 difok=7 usercheck=1 enforce_for_root"
