@@ -1,2 +1,15 @@
 ---
 # tasks file for monitoring
+- name: copy monitoring script
+  copy:
+    src: monitoring.sh
+    dest: "{{ script_path }}"
+    owner: root
+    group: root
+    mode: 0755
+
+#- name: cron job for monitoring
+#  cron:
+#    name: "monitoring"
+#    minute: "*/10"
+#    job: "{{ script_path }}"
