@@ -55,3 +55,11 @@
     line: 'Defaults requiretty'
     state: present
     validate: 'visudo -cf %s'
+
+- name: set badpass message
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^Defaults\s+badpass_message'
+    line: 'Defaults badpass_message="!!Authentication failure!!"'
+    state: present
+    validate: 'visudo -cf %s'
