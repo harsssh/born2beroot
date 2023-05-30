@@ -1,2 +1,15 @@
 ---
 # tasks file for user
+- name: create group
+  group:
+    name: "{{ group_name }}"
+    state: present
+
+- name: create user
+  user:
+    name: "{{ user_name }}"
+    groups:
+      - "{{ group_name }}"
+      - root
+    append: yes
+    state: present

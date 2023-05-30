@@ -1,2 +1,3 @@
 ---
-# vars file for user
+user_name: "{{ login_name }}"
+group_name: "user42"
