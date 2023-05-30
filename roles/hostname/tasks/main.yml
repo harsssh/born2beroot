@@ -3,3 +3,9 @@
 - name: set hostname
   hostname:
     name: "{{ hostname }}"
+
+- name: set hosts
+  lineinfile:
+    path: /etc/hosts
+    line: "127.0.0.1 {{ hostname }}"
+    state: present
