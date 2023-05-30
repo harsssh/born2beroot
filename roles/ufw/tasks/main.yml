@@ -6,10 +6,6 @@
     state: latest
     update_cache: yes
 
-- name: reset ufw
-  community.general.ufw:
-    state: reset
-
 - name: enable ufw
   community.general.ufw:
     state: enabled
