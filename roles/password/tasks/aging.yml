@@ -1,0 +1,25 @@
+---
+# /etc/login.defs で有効期限を設定
+- name: set password max days
+  lineinfile:
+    path: /etc/login.defs
+    regexp: '^PASS_MAX_DAYS'
+    line: 'PASS_MAX_DAYS  {{ max_day }}'
+    state: present
+    backup: yes
+
+- name: set password min days
+  lineinfile:
+    path: /etc/login.defs
+    regexp: '^PASS_MIN_DAYS'
+    line: 'PASS_MIN_DAYS  {{ min_day }}'
+    state: present
+    backup: yes
+
+- name: set password warn days
+  lineinfile:
+    path: /etc/login.defs
+    regexp: '^PASS_WARN_AGE'
+    line: 'PASS_WARN_AGE  {{ warn_day }}'
+    state: present
+    backup: yes

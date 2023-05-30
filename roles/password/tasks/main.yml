@@ -1,2 +1,17 @@
 ---
 # tasks file for password
+- name: install libpam-pwquality
+  apt:
+    name: libpam-pwquality
+    state: present
+
+- name: set password policy
+  lineinfile:
+    path: /etc/pam.d/common-password
+    regexp: '^password\s+requisite\s+pam_pwquality.so'
+    line: 'password requisite pam_pwquality.so {{ policy }}'
+    state: present
+    backup: yes
+    insertafter: EOF
+
+- import_tasks: aging.yml
