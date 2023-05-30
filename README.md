@@ -11,3 +11,10 @@ Host vm
     Port [Your server SSH port]
     IdentityFile [Your SSH key]
 ```
+
+## Usage
+1. Set the `login_name` variable in `host_vars/vm.yml` to your login name.
+2. Run the playbook as follows:
+```
+ansible-playbook playbook.yml
+```
