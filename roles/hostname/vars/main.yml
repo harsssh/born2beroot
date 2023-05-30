@@ -1,3 +1,2 @@
 ---
-# vars file for hostname
-hostname: "kemizuki42"
+hostname: "{{ login_name }}42"
