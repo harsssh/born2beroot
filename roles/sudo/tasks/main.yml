@@ -1,2 +1,33 @@
 ---
 # tasks file for sudo
+- name: set passwd_tries
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^Defaults\s+passwd_tries='
+    line: 'Defaults passwd_tries={{ max_tries }}'
+    state: present
+    validate: 'visudo -cf %s'
+
+- name: set secure_path
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^Defaults\s+secure_path='
+    line: 'Defaults secure_path={{ secure_path }}'
+    state: present
+    validate: 'visudo -cf %s'
+
+- name: set log_dir
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^Defaults\s+logfile='
+    line: 'Defaults logfile={{ log_dir }}/sudo.log'
+    state: present
+    validate: 'visudo -cf %s'
+
+- name: set tty mode
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^Defaults\s+requiretty'
+    line: 'Defaults requiretty'
+    state: present
+    validate: 'visudo -cf %s'
