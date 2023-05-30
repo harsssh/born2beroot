@@ -1,5 +1,13 @@
 ---
 # tasks file for sudo
+- name: create log dir
+  file:
+    path: "{{ log_file | dirname }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
 - name: set passwd_tries
   lineinfile:
     path: /etc/sudoers
@@ -16,11 +24,27 @@
     state: present
     validate: 'visudo -cf %s'
 
-- name: set log_dir
+- name: set log file
   lineinfile:
     path: /etc/sudoers
     regexp: '^Defaults\s+logfile='
-    line: 'Defaults logfile={{ log_dir }}/sudo.log'
+    line: 'Defaults logfile={{ log_file }}'
+    state: present
+    validate: 'visudo -cf %s'
+
+- name: set iolog dir
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^Defaults\s+iolog_dir='
+    line: 'Defaults iolog_dir={{ log_file | dirname }}'
+    state: present
+    validate: 'visudo -cf %s'
+
+- name: set log configuration
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^Defaults\s+log_input'
+    line: 'Defaults log_input,log_output'
     state: present
     validate: 'visudo -cf %s'
 

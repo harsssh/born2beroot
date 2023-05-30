@@ -2,4 +2,4 @@
 # vars file for sudo
 secure_path: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 max_tries: 3
-log_dir: "/var/log/sudo"
+log_file: "/var/log/sudo/sudo.log"
