@@ -2,7 +2,7 @@
 - name: change ssh port
   lineinfile:
     dest: /etc/ssh/sshd_config
-    regexp: '^#?Port 22'
+    regexp: '^#?Port'
     line: 'Port {{ssh_port}}'
     state: present
   notify: restart sshd
