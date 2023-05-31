@@ -1,5 +1,7 @@
 ---
 # tasks file for monitoring
+- import_tasks: tool.yml
+
 - name: copy monitoring script
   copy:
     src: monitoring.sh
@@ -8,8 +10,8 @@
     group: root
     mode: 0755
 
-#- name: cron job for monitoring
-#  cron:
-#    name: "monitoring"
-#    minute: "*/10"
-#    job: "{{ script_path }}"
+- name: cron job for monitoring
+  cron:
+    name: "monitoring"
+    minute: "*/10"
+    job: "bash {{ script_path }} 2> /dev/null | wall"

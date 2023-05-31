@@ -1,0 +1,10 @@
+---
+- name: install netstat
+  package:
+    name: net-tools
+    state: present
+
+- name: install bc
+  package:
+    name: bc
+    state: present
