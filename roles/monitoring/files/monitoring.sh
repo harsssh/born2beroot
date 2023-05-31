@@ -1,5 +1,5 @@
 #!/bin/bash
-ARC=$(uname -m)
+ARC=$(uname -a)
 CPU=$(lscpu | grep '^Socket(s)' | awk '{print $2}')
 vCPU=$(lscpu | grep '^CPU(s)' | awk '{print $2}')
 MEM=$(free -m | grep '^Mem' | awk '{print $2}')
